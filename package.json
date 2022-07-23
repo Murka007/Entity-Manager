@@ -2,12 +2,14 @@
   "name": "entity-manager",
   "version": "1.0.0",
   "description": "The best implementation of how to store and manage game objects",
+  "author": "Murka",
   "private": true,
   "scripts": {
     "dev": "cross-env MODE=development webpack",
     "build": "cross-env MODE=production webpack",
     "start": "cross-env MODE=development webpack serve",
-    "deploy": "gh-pages -d public"
+    "deploy": "gh-pages -d public",
+    "build:deploy": "npm run build && npm run deploy"
   },
   "keywords": [
     "canvas",
@@ -18,7 +20,6 @@
     "2d",
     "balls"
   ],
-  "author": "Murka",
   "license": "ISC",
   "devDependencies": {
     "cross-env": "^7.0.3",

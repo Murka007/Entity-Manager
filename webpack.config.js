@@ -24,7 +24,6 @@ module.exports = {
     },
     plugins: [
         new HTMLWebpackPlugin({
-            filename: "[contenthash:8].html",
             template: "./index.html",
             minify: {
                 collapseWhitespace: isProd,
