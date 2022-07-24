@@ -6,18 +6,17 @@ const isProd = process.env.MODE === "production";
 module.exports = {
     mode: process.env.MODE,
     target: ["web", "es5"],
-    context: path.resolve(__dirname, "src"),
-    entry: "./index.ts",
+    entry: "./src/index.ts",
     output: {
         filename: "[contenthash:8].js",
-        path: path.resolve(__dirname, "public"),
+        path: path.resolve(__dirname, "build"),
         clean: true
     },
     devServer: {
         port: 3000,
         open: true,
         hot: true,
-        watchFiles: ["src/*.html"]
+        watchFiles: ["public/*.html"]
     },
     optimization: {
         minimizer: [
@@ -26,7 +25,7 @@ module.exports = {
     },
     plugins: [
         new HTMLWebpackPlugin({
-            template: "./index.html",
+            template: "./public/index.html",
             minify: {
                 collapseWhitespace: isProd,
                 minifyCSS: isProd

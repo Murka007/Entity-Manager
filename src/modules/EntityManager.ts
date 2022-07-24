@@ -8,6 +8,10 @@ interface IEntityManager<T> {
     removeById(id: number): void
 }
 
+/**
+ * Used to manipulate with game objects, allows to add and remove new objects
+ * And it happens in an extremely fastest way
+ */
 class EntityManager<T extends IEntity> implements IEntityManager<T> {
 
     /**

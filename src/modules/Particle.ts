@@ -25,7 +25,7 @@ class Particle implements IParticle {
         this.radius = radius;
         this.color = color;
         this.acceleration = new Vector(0, 0);
-        this.velocity = Vector.random2D(Math.random() * Math.PI * 2).setMag(random(0, mouse.pressed ? 9 : 2));
+        this.velocity = Vector.random2D(Math.random() * Math.PI * 2).setMag(random(0, mouse.pressed ? 10 : 2));
         this.position = new Vector(x, y);
         this.lifetime = 175;
     }

@@ -7,10 +7,10 @@ interface IMouse {
 }
 
 const mouse: IMouse = {
-    x2: 0,
-    y2: 0,
-    x: 0,
-    y: 0,
+    x2: window.innerWidth / 2,
+    y2: window.innerHeight / 2,
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2,
     pressed: false
 }
 
