@@ -6,11 +6,14 @@ interface IMouse {
     pressed: boolean;
 }
 
+const dpr = window.devicePixelRatio;
+const x = window.innerWidth / 2 * dpr;
+const y = window.innerHeight / 2 * dpr;
 const mouse: IMouse = {
-    x2: window.innerWidth / 2,
-    y2: window.innerHeight / 2,
-    x: window.innerWidth / 2,
-    y: window.innerHeight / 2,
+    x2: x,
+    y2: y,
+    x: x,
+    y: y,
     pressed: false
 }
 
