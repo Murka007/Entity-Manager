@@ -17,17 +17,24 @@ const mouse: IMouse = {
     pressed: false
 }
 
-window.addEventListener("mousemove", event => {
+const handleMove = (event: MouseEvent | TouchEvent) => {
     const dpr = window.devicePixelRatio;
-    mouse.x2 = event.clientX * dpr;
-    mouse.y2 = event.clientY * dpr;
-})
+    const { clientX, clientY } = event instanceof TouchEvent ? event.changedTouches[0] : event;
+    mouse.x2 = clientX * dpr;
+    mouse.y2 = clientY * dpr;
+}
 
-const handlePress = (event: MouseEvent) => {
-    mouse.pressed = event.type === "mousedown";
+window.addEventListener("mousemove", handleMove);
+window.addEventListener("touchmove", handleMove);
+
+const handlePress = (event: MouseEvent | TouchEvent) => {
+    mouse.pressed = event.type === "mousedown" || event.type === "touchstart";
+    handleMove(event);
 }
 
 window.addEventListener("mousedown", handlePress);
 window.addEventListener("mouseup", handlePress);
+window.addEventListener("touchstart", handlePress);
+window.addEventListener("touchend", handlePress);
 
 export default mouse;
