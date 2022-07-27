@@ -17,9 +17,12 @@ const mouse: IMouse = {
     pressed: false
 }
 
+type EventType = MouseEvent | Touch;
 const handleMove = (event: MouseEvent | TouchEvent) => {
     const dpr = window.devicePixelRatio;
-    const { clientX, clientY } = event instanceof TouchEvent ? event.changedTouches[0] : event;
+
+    const isTouch = typeof TouchEvent !== "undefined" && event instanceof TouchEvent;
+    const { clientX, clientY } = (isTouch ? event.changedTouches[0] : event) as EventType;
     mouse.x2 = clientX * dpr;
     mouse.y2 = clientY * dpr;
 }
